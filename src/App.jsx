@@ -20,12 +20,16 @@ function App() {
   console.log(url);
 
   useEffect(() => {
-    apiTesting();
+    fetchApiConfig();
   }, []);
-  const apiTesting = async () => {
-    const response = await fetchData("/movie/popular");
-    console.log(response);
-    dispatch(getApiConfiguration(response));
+  const fetchApiConfig = async () => {
+    const response = await fetchData("/configuration");
+    const url = {
+      backdrop: response?.images.secure_base_url + "original",
+      poster: response?.images.secure_base_url + "original",
+      profile: response?.images.secure_base_url + "original",
+    };
+    dispatch(getApiConfiguration(url));
   };
 
   return (
