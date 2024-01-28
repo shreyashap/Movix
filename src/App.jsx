@@ -33,13 +33,17 @@ function App() {
   };
 
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/details/:mediaType/:id" element={<Details />} />
-      <Route path="/search/:query" element={<SearchResult />} />
-      <Route path="/explore/:mediaType" element={<Explore />} />
-      <Route path="*" element={<PageNotFound />} />
-    </Routes>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/details/:mediaType/:id" element={<Details />} />
+        <Route path="/search/:query" element={<SearchResult />} />
+        <Route path="/explore/:mediaType" element={<Explore />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+      <Footer />
+    </>
   );
 }
 
